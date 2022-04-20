@@ -15,30 +15,23 @@ public class TaxFunction {
 	 */
 	
 	
-	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-		
-		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
-		}
-		
-		if (numberOfChildren > 3) {
-			numberOfChildren = 3;
-		}
-		
-		if (isMarried) {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
-		}else {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
-		}
-		
-		if (tax < 0) {
-			return 0;
-		}else {
-			return tax;
-		}
-			 
+	public static void main(String args[])
+	{
+	double tax=0,it;
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter income ");
+	it=sc.nextDouble();
+	if(it<=200000)
+		tax=0;
+	else if(it<=300000)
+		tax=0.1*(it-200000);
+	else if(it<=500000)
+		tax=(0.2*(it-300000))+(0.1*100000);
+	else if(it<=1000000)
+		tax=(0.3*(it-500000))+(0.2*200000)+(0.1*100000);
+	else
+		tax=(0.4*(it-1000000))+(0.3*500000)+(0.2*200000)+(0.1*100000);
+	System.out.println("Income tax amount is "+tax);
 	}
 	
 }
