@@ -19,6 +19,8 @@ public class Employee {
 	private int monthWorkingInYear;
 	
 	private boolean isForeigner;
+	private boolean gender;
+	private boolean female;
 	private boolean gender; //true = Laki-laki, false = Perempuan
 	
 	private int monthlySalary;
@@ -31,6 +33,7 @@ public class Employee {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
+
 	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
@@ -78,12 +81,22 @@ public class Employee {
 	public void setAdditionalIncome(int income) {	
 		this.otherMonthlyIncome = income;
 	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
 	
 	public void setSpouse(String spouseName, String spouseIdNumber) {
 		this.spouseName = spouseName;
 		this.spouseIdNumber = idNumber;
 	}
-	
+	public enum Gender {
+		MALE,
+		FEMALE,
+	}
+	// usage example
+	myEmployee.setGender(Gender.FEMALE);
+
 	public void addChild(String childName, String childIdNumber) {
 		childNames.add(childName);
 		childIdNumbers.add(childIdNumber);
